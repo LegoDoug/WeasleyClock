@@ -2,6 +2,7 @@
 #include "Adafruit_IO_Client.h"
 #include <CapacitiveSensor.h>
 #include <ESP8266WiFi.h>
+#include "secret_config.h"
 
 /**
  * Be sure to set the board type to Adafruit Feather HUZZAH ESP8266.
@@ -16,28 +17,13 @@
  * 
  * Better stepper library: AccelStepper
  * http://www.airspayce.com/mikem/arduino/AccelStepper/classAccelStepper.html
+ * 
+ * THIS WILL NOT WORK UNLESS YOU COPY secret_config.template.h to secret_config.h, and fill in the 
+ * correct values for the following items:
+ * 
+ * AIO_SERVERPORT, AIO_USERNAME, AIO_KEY, AIO_FEED_PATH, AIO_PUBLISH_FEED, and AIO_SUBSCRIBE_FEED
+ * 
  */
-
-/************************* WiFi Access Point *********************************/
-//#define WLAN_SSID "R2-D2"                          // "...your SSID..." Amusingly, the cannot contains spaces or hyphens.
-//#define WLAN_PASS "hoginthenetwork"                // "...your password..."
-//#define WLAN_SSID "CIA Listening Post"           // "...your SSID..."
-//#define WLAN_PASS "certifiedinthestateofma"      // "...your password..."
-//#define WLAN_SSID "Bonhoeffer's Cafe"
-//#define WLAN_PASS "cafe16cafe"
-#define WLAN_SSID "VeraGuest"                          // "...your SSID..." Amusingly, the cannot contains spaces or hyphens.
-#define WLAN_PASS "DevSecOps01!"                // "...your password..."
-
-
-/************************* Adafruit.io Setup *********************************/
-
-#define AIO_SERVER      "io.adafruit.com"
-#define AIO_SERVERPORT  1883                                // use 8883 for SSL, otherwise use 1883
-#define AIO_USERNAME    "LegoDoug"                          // "...your AIO username (see https://accounts.adafruit.com)..."
-#define AIO_KEY         "aa30a41bdbbf48278999b54433b59c19"  // "...your AIO key..."
-#define AIO_FEED_PATH   "/feeds/"
-#define AIO_PUBLISH_FEED          "weasleyclockposition"
-#define AIO_SUBSCRIBE_FEED        "weasleyclockstatus"
 
 // Motor pin definitions
 #define motorPin1  14    // IN1 on the ULN2003 driver board
